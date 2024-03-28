@@ -1,0 +1,21 @@
+{
+  "Animals":
+          [
+            {
+            "Predators":
+            [{
+              "Wolf": {
+                "ate_animals": [{
+                  "Horse": 10,
+                  "Rabbit": 60
+                }],
+                "weight": 50,
+                "maxOnLocation": 30,
+                "speed": 3,
+                "maxEatedUnit": 8
+              }
+            }],
+            "Herbivores": 0
+            }
+          ]
+}
