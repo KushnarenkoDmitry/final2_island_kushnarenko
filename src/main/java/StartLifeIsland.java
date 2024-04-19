@@ -34,20 +34,6 @@ public class StartLifeIsland {
 
     }
 
-//    public void toReproduceAllAnimals() throws CloneNotSupportedException {
-//        for (int i = 0; i < island.x; i++) {
-//            for (int j = 0; j < island.y; j++) {
-//                Location location = island.locations[i][j];
-//                Set<Class<? extends Unit>> classesAtTheLocation = location.mapAnimalsInLocation.keySet();
-//                for (Class<? extends Unit> unitClass : classesAtTheLocation){
-//                    ArrayList<Unit> units = location.mapAnimalsInLocation.get(unitClass);
-//                    for (Unit reproduceUnit : units){
-//                        reproduceUnit.toReproduce(location);
-//                    }
-//                }
-//            }
-//        }
-//    }
     public void toReproduceAllAnimals() throws CloneNotSupportedException {
         for (int i = 0; i < island.x; i++) {
             for (int j = 0; j < island.y; j++) {
@@ -82,18 +68,6 @@ public class StartLifeIsland {
         }
     }
 
-    public boolean isGameOver() {
-        for (int i = 0; i < island.x; i++) {
-            for (int j = 0; j < island.y; j++) {
-                Location location = island.locations[i][j];
-                if (!location.isEmpty()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-
-    }
 
     public void eatAllAnimals() {
         for (int i = 0; i < island.x; i++) {
@@ -130,8 +104,8 @@ public class StartLifeIsland {
             for (int j = 0; j < island.y; j++) {
                 Location location = island.locations[i][j];
                 Set<Class<? extends Unit>> whoInLocation = location.mapAnimalsInLocation.keySet();
-                System.out.println("В локации " + i + "-" + j);
-                System.out.println();
+                System.out.println("\nВ локации " + i + "-" + j + "\n");
+
                 for (Class<? extends Unit> unitClass : whoInLocation) {
                     System.out.print(unitClass.getSimpleName() + " " + location.mapAnimalsInLocation.get(unitClass).size() + " " + "\n");
                 }
@@ -139,85 +113,3 @@ public class StartLifeIsland {
         }
     }
 }
-
-
-
-//        public void eatAllAnimals(){
-//        for (int i = 0; i < island.x; i++) {
-//            for (int j = 0; j < island.y; j++) {
-//                Location location = island.locations[i][j];
-//                // идем по порядку коварности (названий классов животных)
-//                for (Class<? extends Animal> animal :Settings.sequenceAnimalEat){
-//                    if (!location.isPresenceOfUnitLocation(animal)){
-//                        continue;
-//                    }
-//                    Set<Class<? extends Unit>> setEdibleAnimals = Settings.CHARACTERISTICS_OF_EATING.get(animal).keySet();
-//                    // идем по объектам животных которые первые на питание
-//                    for (Unit unit: location.mapAnimalsInLocation.get(animal)) {
-//                        for (Class<? extends Unit> eadibleUnit : setEdibleAnimals){
-//                            if (!location.isPresenceOfUnitLocation(eadibleUnit)) {continue;}
-//                            ArrayList<Unit> arrUnits = location.mapAnimalsInLocation.get(eadibleUnit);
-//                            for (Unit currentUnit: arrUnits) {
-//                                if (!unit.isHungry()){break;}
-//                                if(unit.eat(currentUnit)){
-//                                    location.mapAnimalsInLocation.get(currentUnit.getClass()).remove(currentUnit);
-//                                }
-//                            }
-//                        }
-//
-//                    }
-//                }
-//            }
-//        }
-
-
-//    public void eatAllAnimals() {
-//        for (int i = 0; i < island.x; i++) {
-//            for (int j = 0; j < island.y; j++) {
-//                Location location = island.locations[i][j];
-//                Set<Class<? extends Unit>> setUnitInLocation = location.mapAnimalsInLocation.keySet();
-//                for (Class<? extends Unit> unitClass : setUnitInLocation) {
-//                    Set<Class<? extends Unit>> setFoodForUnitClass = Settings.CHARACTERISTICS_OF_EATING.get(unitClass).keySet();
-//                    for (Class<? extends Unit> unit : setFoodForUnitClass)
-//                        if (location.isPresenceOfUnitLocation(unit)) {
-//                            location.mapAnimalsInLocation.get(unit).remove(0)
-//                        }
-//                }
-//            }
-//        }
-//    }
-
-
-//    public void moveAllAnimals() {
-//        for (int i = 0; i < island.x; i++) {
-//            for (int j = 0; j < island.y; j++) {
-//                Location location = island.locations[i][j];
-//                for (ArrayList<Unit> units : location.mapAnimalsInLocation.values()) {
-//                    for (Unit unit : units) {
-//                        ArrayList<Integer> arrCoord = unit.move(i, j, island);
-//                        if (arrCoord != null && arrCoord.size() >= 2) {
-//                            int x = arrCoord.get(0);
-//                            int y = arrCoord.get(1);
-//                            if (x >= 0 && x < island.x && y >= 0 && y < island.y) {
-//                                Location locationTo = island.locations[x][y];
-//                                locationTo.addUnitLocation(unit);
-//                                location.mapAnimalsInLocation.get(unit.getClass()).remove(unit);
-
-//                        ArrayList<Integer> arrCoord = unit.move(i,j,island);
-//                        int x = arrCoord.get(0);
-//                        int y = arrCoord.get(1);
-//                        Location locationTo = island.locations[x][y];
-//                        locationTo.addUnitLocation(unit);
-//                        location.mapAnimalsInLocation.get(unit.getClass()).remove(unit);
-//
-// //
-// //
-// //
-// удалить со старой локации
-//                          }
-//                      }
-//                 }
-//              }
-//          }
-//      }
-// }
