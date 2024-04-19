@@ -3,10 +3,20 @@ package Settings;
 import Organism.*;
 import entity.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Settings {
+    public static enum directionOfMove{
+        LEFT,
+        RIGHT,
+        DOWN,
+        UP
+    }
+    public static ArrayList<Class<? extends Unit>> sequenceAnimalEat = new ArrayList<>();
+    static {
+        Collections.addAll(sequenceAnimalEat, Bear.class, Eagle.class,Snake.class, Wolf.class, Fox.class, WildBoar.class,
+                Mouse.class,Caterpillar.class, Horse.class, Deer.class, Rabbit.class, Goat.class, Sheep.class,Buffalo.class, Caterpillar.class);
+    }
 
     public static final Map<Class<? extends Unit>, double[]> CHARACTERISTICS_OF_ANIMALS = new HashMap<>();
 
